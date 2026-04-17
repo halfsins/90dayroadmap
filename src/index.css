@@ -1,0 +1,194 @@
+:root {
+  --bg: #090f18;
+  --shell: #111822;
+  --card: #121b26;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-soft: rgba(255, 255, 255, 0.1);
+  --text: #f4f7fb;
+  --muted: #a6b2c2;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.roadmap-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0f18 0%, #090e16 100%);
+  padding: 14px;
+}
+
+.roadmap-shell {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: var(--shell);
+  padding: 10px 12px;
+}
+
+.tabs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.phase-tab {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background: transparent;
+  color: #f5f7fb;
+  padding: 8px 16px;
+  font-size: 27px;
+  line-height: 1;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phase-tab-active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.warning-banner {
+  margin-bottom: 10px;
+  border: 1px solid rgba(245, 180, 20, 0.3);
+  border-radius: 10px;
+  background: rgba(245, 180, 20, 0.2);
+  color: #ffd766;
+  padding: 10px 12px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.phase-kicker {
+  margin: 0 0 8px;
+  color: #d2dbe7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.role-card {
+  margin-bottom: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  padding: 14px 16px;
+}
+
+.role-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 47px;
+  line-height: 1.06;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.role-subtitle {
+  margin: 4px 0 14px;
+  color: var(--muted);
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.row-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.week-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 5px 11px;
+  font-size: 19px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.chip-backend {
+  background: rgba(61, 131, 255, 0.2);
+  border-color: rgba(93, 160, 255, 0.35);
+  color: #b8d7ff;
+}
+
+.chip-automation {
+  background: rgba(237, 174, 54, 0.18);
+  border-color: rgba(237, 174, 54, 0.35);
+  color: #ffe2a8;
+}
+
+.chip-frontend {
+  background: rgba(157, 223, 64, 0.18);
+  border-color: rgba(157, 223, 64, 0.35);
+  color: #e3fbb6;
+}
+
+.chip-growth {
+  background: rgba(160, 171, 190, 0.17);
+  border-color: rgba(160, 171, 190, 0.3);
+  color: #d6deea;
+}
+
+.row-copy {
+  padding-top: 2px;
+  color: #f5f8fd;
+  font-size: 31px;
+  line-height: 1.24;
+  font-weight: 700;
+}
+
+.milestone-pill {
+  margin-top: 8px;
+  display: inline-block;
+  border: 1px solid rgba(93, 198, 80, 0.4);
+  border-radius: 999px;
+  background: rgba(93, 198, 80, 0.22);
+  color: #99ec8c;
+  padding: 8px 14px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .phase-tab {
+    font-size: 20px;
+  }
+
+  .warning-banner {
+    font-size: 18px;
+  }
+
+  .role-title {
+    font-size: 36px;
+  }
+
+  .role-subtitle {
+    font-size: 20px;
+  }
+
+  .week-chip {
+    font-size: 15px;
+  }
+
+  .row-copy {
+    font-size: 24px;
+  }
+
+  .milestone-pill {
+    font-size: 17px;
+  }
+}
