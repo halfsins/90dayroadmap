@@ -42,6 +42,8 @@ body {
 }
 
 .phase-tab {
+  position: relative;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   background: transparent;
@@ -51,10 +53,39 @@ body {
   line-height: 1;
   font-weight: 800;
   cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.phase-tab::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 5px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #63a4ff 0%, #99ec8c 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 220ms ease, opacity 220ms ease;
 }
 
 .phase-tab-active {
   background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.phase-tab-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.phase-tab:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
 
 .warning-banner {
@@ -83,6 +114,15 @@ body {
   border-radius: 14px;
   background: var(--card);
   padding: 14px 16px;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.role-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.26);
+  background: #152131;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.33), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 }
 
 .role-title {
@@ -106,6 +146,11 @@ body {
   align-items: flex-start;
   gap: 10px;
   margin-bottom: 8px;
+  transition: transform 180ms ease;
+}
+
+.role-card:hover .row-item {
+  transform: translateX(2px);
 }
 
 .week-chip {
@@ -117,6 +162,13 @@ body {
   font-size: 19px;
   font-weight: 700;
   white-space: nowrap;
+  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+}
+
+.row-item:hover .week-chip {
+  transform: translateY(-1px);
+  filter: saturate(1.1);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
 }
 
 .chip-backend {
@@ -161,6 +213,23 @@ body {
   padding: 8px 14px;
   font-size: 22px;
   font-weight: 700;
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.milestone-pill:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.06);
+  box-shadow: 0 10px 24px rgba(56, 150, 52, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phase-tab,
+  .role-card,
+  .row-item,
+  .week-chip,
+  .milestone-pill {
+    transition: none;
+  }
 }
 
 @media (max-width: 1100px) {
