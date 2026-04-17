@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function RoadmapDashboard() {
   const [active, setActive] = useState(0);
+  const [theme, setTheme] = useState("neo");
 
   const phases = [
     {
@@ -125,6 +126,11 @@ export default function RoadmapDashboard() {
   const phase = phases[active];
   const tabLabels = ["Days 1-30", "Days 31-60", "Days 61-90"];
   const phaseProgress = [33, 66, 100];
+  const themes = [
+    { id: "neo", label: "Neo" },
+    { id: "museum", label: "Museum" },
+    { id: "cyber", label: "Cyber" },
+  ];
   const chipTone = (title) => {
     if (title.includes("Backend")) return "chip-backend";
     if (title.includes("Automation")) return "chip-automation";
@@ -139,8 +145,23 @@ export default function RoadmapDashboard() {
   };
 
   return (
-    <div className="roadmap-page">
+    <div className={`roadmap-page theme-${theme}`}>
       <div className="roadmap-shell">
+        <div className="theme-row">
+          <span className="theme-label">Palette</span>
+          <div className="theme-pills">
+            {themes.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setTheme(t.id)}
+                className={`theme-pill ${theme === t.id ? "theme-pill-active" : ""}`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="tabs-row">
           {phases.map((p, i) => (
             <button
