@@ -124,11 +124,18 @@ export default function RoadmapDashboard() {
 
   const phase = phases[active];
   const tabLabels = ["Days 1-30", "Days 31-60", "Days 61-90"];
+  const phaseProgress = [33, 66, 100];
   const chipTone = (title) => {
     if (title.includes("Backend")) return "chip-backend";
     if (title.includes("Automation")) return "chip-automation";
     if (title.includes("Frontend")) return "chip-frontend";
     return "chip-growth";
+  };
+  const roleIcon = (title) => {
+    if (title.includes("Backend")) return "[]";
+    if (title.includes("Automation")) return "{}";
+    if (title.includes("Frontend")) return "</>";
+    return "$";
   };
 
   return (
@@ -146,23 +153,41 @@ export default function RoadmapDashboard() {
           ))}
         </div>
 
-        {phase.warning && <div className="warning-banner">{`△ ${phase.warning}`}</div>}
-        <p className="phase-kicker">{phase.title}</p>
+        <div key={active} className="phase-content">
+          {phase.warning && <div className="warning-banner">{`△ ${phase.warning}`}</div>}
 
-        {phase.blocks.map((block, i) => (
-          <div key={i} className="role-card">
-            <h2 className="role-title">{block.title}</h2>
-            <p className="role-subtitle">{block.sub}</p>
-            {block.rows.map((r, idx) => (
-              <div key={idx} className="row-item">
-                <span className={`week-chip ${chipTone(block.title)}`}>{r[0]}</span>
-                <span className="row-copy">{r[1]}</span>
+          <div className="phase-header">
+            <p className="phase-kicker">{phase.title}</p>
+            <div className="phase-progress">
+              <span className="phase-progress-label">{`Phase ${active + 1} progress`}</span>
+              <span className="phase-progress-value">{`${phaseProgress[active]}%`}</span>
+              <div className="phase-progress-track">
+                <div
+                  className="phase-progress-fill"
+                  style={{ width: `${phaseProgress[active]}%` }}
+                />
               </div>
-            ))}
+            </div>
           </div>
-        ))}
 
-        <div className="milestone-pill">{phase.milestone}</div>
+          {phase.blocks.map((block, i) => (
+            <div key={i} className="role-card">
+              <h2 className="role-title">
+                <span className="role-icon">{roleIcon(block.title)}</span>
+                {block.title}
+              </h2>
+              <p className="role-subtitle">{block.sub}</p>
+              {block.rows.map((r, idx) => (
+                <div key={idx} className="row-item">
+                  <span className={`week-chip ${chipTone(block.title)}`}>{r[0]}</span>
+                  <span className="row-copy">{r[1]}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+
+          <div className="milestone-pill">{phase.milestone}</div>
+        </div>
       </div>
     </div>
   );

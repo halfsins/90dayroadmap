@@ -20,25 +20,47 @@ body {
 }
 
 .roadmap-page {
+  position: relative;
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0f18 0%, #090e16 100%);
   padding: 14px;
+  overflow-x: hidden;
+}
+
+.roadmap-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% -20%, rgba(106, 130, 251, 0.16), transparent 48%),
+    radial-gradient(circle at 88% 8%, rgba(93, 198, 80, 0.12), transparent 45%),
+    radial-gradient(circle at 48% 100%, rgba(255, 255, 255, 0.05), transparent 55%);
+  z-index: 0;
 }
 
 .roadmap-shell {
+  position: relative;
+  z-index: 1;
   width: min(100%, 1180px);
   margin: 0 auto;
   border: 1px solid var(--line-soft);
   border-radius: 14px;
-  background: var(--shell);
-  padding: 10px 12px;
+  background: linear-gradient(180deg, #111822 0%, #101722 100%);
+  padding: 10px 12px 12px;
+  backdrop-filter: blur(2px);
 }
 
 .tabs-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 8px;
+  z-index: 5;
+  padding-bottom: 6px;
+  background: linear-gradient(180deg, rgba(17, 24, 34, 0.98), rgba(17, 24, 34, 0.72));
+  backdrop-filter: blur(5px);
 }
 
 .phase-tab {
@@ -88,24 +110,82 @@ body {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
 
+.phase-content {
+  animation: fade-slide-in 230ms ease;
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .warning-banner {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   border: 1px solid rgba(245, 180, 20, 0.3);
   border-radius: 10px;
   background: rgba(245, 180, 20, 0.2);
   color: #ffd766;
   padding: 10px 12px;
-  font-size: 22px;
+  font-size: clamp(14px, 1.6vw, 22px);
   font-weight: 600;
 }
 
+.phase-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
 .phase-kicker {
-  margin: 0 0 8px;
+  margin: 0;
   color: #d2dbe7;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 16px;
+  font-size: clamp(12px, 1.2vw, 16px);
   font-weight: 700;
+}
+
+.phase-progress {
+  min-width: 220px;
+  text-align: right;
+}
+
+.phase-progress-label {
+  color: #9fb0c5;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.phase-progress-value {
+  margin-left: 8px;
+  color: #f4f8ff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.phase-progress-track {
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.phase-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #63a4ff 0%, #99ec8c 100%);
+  box-shadow: 0 0 14px rgba(99, 164, 255, 0.35);
+  transition: width 260ms ease;
 }
 
 .role-card {
@@ -113,9 +193,9 @@ body {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--card);
-  padding: 14px 16px;
+  padding: 16px 16px 14px;
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease,
-    background-color 220ms ease;
+    background-color 220ms ease, opacity 220ms ease;
 }
 
 .role-card:hover {
@@ -125,32 +205,61 @@ body {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.33), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 }
 
+.phase-content:hover .role-card:not(:hover) {
+  opacity: 0.84;
+}
+
 .role-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 0;
   color: #ffffff;
-  font-size: 47px;
+  font-size: clamp(24px, 3.2vw, 47px);
   line-height: 1.06;
   font-weight: 900;
   letter-spacing: -0.02em;
 }
 
+.role-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #c9d8ef;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+}
+
 .role-subtitle {
-  margin: 4px 0 14px;
+  margin: 6px 0 14px;
   color: var(--muted);
-  font-size: 25px;
+  font-size: clamp(15px, 1.9vw, 25px);
   font-weight: 600;
 }
 
 .row-item {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin-bottom: 8px;
-  transition: transform 180ms ease;
+  margin-bottom: 6px;
+  padding: 6px 8px;
+  border-radius: 9px;
+  transition: transform 180ms ease, background-color 180ms ease;
 }
 
 .role-card:hover .row-item {
   transform: translateX(2px);
+}
+
+.row-item:hover {
+  background: rgba(255, 255, 255, 0.055);
 }
 
 .week-chip {
@@ -198,7 +307,7 @@ body {
 .row-copy {
   padding-top: 2px;
   color: #f5f8fd;
-  font-size: 31px;
+  font-size: clamp(16px, 2.05vw, 31px);
   line-height: 1.24;
   font-weight: 700;
 }
@@ -211,7 +320,7 @@ body {
   background: rgba(93, 198, 80, 0.22);
   color: #99ec8c;
   padding: 8px 14px;
-  font-size: 22px;
+  font-size: clamp(13px, 1.5vw, 22px);
   font-weight: 700;
   transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
 }
@@ -224,11 +333,14 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .phase-tab,
+  .phase-content,
+  .phase-progress-fill,
   .role-card,
   .row-item,
   .week-chip,
   .milestone-pill {
     transition: none;
+    animation: none;
   }
 }
 
@@ -241,23 +353,22 @@ body {
     font-size: 18px;
   }
 
-  .role-title {
-    font-size: 36px;
+  .phase-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  .role-subtitle {
-    font-size: 20px;
+  .phase-progress {
+    width: 100%;
+    text-align: left;
   }
 
   .week-chip {
     font-size: 15px;
   }
 
-  .row-copy {
-    font-size: 24px;
-  }
-
-  .milestone-pill {
-    font-size: 17px;
+  .tabs-row {
+    top: 4px;
   }
 }
