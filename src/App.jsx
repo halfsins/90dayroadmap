@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function RoadmapDashboard() {
   const [active, setActive] = useState(0);
-  const [theme, setTheme] = useState("neo");
+  const [completed, setCompleted] = useState(() => {
+    const saved = window.localStorage.getItem("roadmap-completed-tasks");
+    return saved ? JSON.parse(saved) : {};
+  });
 
   const phases = [
     {
@@ -125,12 +128,22 @@ export default function RoadmapDashboard() {
 
   const phase = phases[active];
   const tabLabels = ["Days 1-30", "Days 31-60", "Days 61-90"];
-  const phaseProgress = [33, 66, 100];
-  const themes = [
-    { id: "neo", label: "Neo" },
-    { id: "museum", label: "Museum" },
-    { id: "cyber", label: "Cyber" },
-  ];
+  const phaseTasks = useMemo(
+    () =>
+      phase.blocks.flatMap((block, blockIdx) =>
+        block.rows.map((row, rowIdx) => ({
+          id: `${active}-${blockIdx}-${rowIdx}`,
+          owner: block.title,
+          week: row[0],
+          task: row[1],
+        }))
+      ),
+    [phase, active]
+  );
+  const completedCount = phaseTasks.filter((task) => completed[task.id]).length;
+  const progressPct =
+    phaseTasks.length === 0 ? 0 : Math.round((completedCount / phaseTasks.length) * 100);
+  const remainingTasks = phaseTasks.filter((task) => !completed[task.id]).length;
   const chipTone = (title) => {
     if (title.includes("Backend")) return "chip-backend";
     if (title.includes("Automation")) return "chip-automation";
@@ -143,25 +156,20 @@ export default function RoadmapDashboard() {
     if (title.includes("Frontend")) return "</>";
     return "$";
   };
+  const toggleTask = (id) => {
+    setCompleted((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  useEffect(() => {
+    window.localStorage.setItem("roadmap-completed-tasks", JSON.stringify(completed));
+  }, [completed]);
 
   return (
-    <div className={`roadmap-page theme-${theme}`}>
+    <div className="roadmap-page">
       <div className="roadmap-shell">
-        <div className="theme-row">
-          <span className="theme-label">Palette</span>
-          <div className="theme-pills">
-            {themes.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => setTheme(t.id)}
-                className={`theme-pill ${theme === t.id ? "theme-pill-active" : ""}`}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
         <div className="tabs-row">
           {phases.map((p, i) => (
             <button
@@ -181,13 +189,13 @@ export default function RoadmapDashboard() {
             <p className="phase-kicker">{phase.title}</p>
             <div className="phase-progress">
               <span className="phase-progress-label">{`Phase ${active + 1} progress`}</span>
-              <span className="phase-progress-value">{`${phaseProgress[active]}%`}</span>
+              <span className="phase-progress-value">{`${progressPct}%`}</span>
               <div className="phase-progress-track">
-                <div
-                  className="phase-progress-fill"
-                  style={{ width: `${phaseProgress[active]}%` }}
-                />
+                <div className="phase-progress-fill" style={{ width: `${progressPct}%` }} />
               </div>
+              <p className="phase-progress-meta">
+                {`${completedCount}/${phaseTasks.length} tasks complete`}
+              </p>
             </div>
           </div>
 
@@ -198,15 +206,31 @@ export default function RoadmapDashboard() {
                 {block.title}
               </h2>
               <p className="role-subtitle">{block.sub}</p>
-              {block.rows.map((r, idx) => (
-                <div key={idx} className="row-item">
+              {block.rows.map((r, idx) => {
+                const taskId = `${active}-${i}-${idx}`;
+                return (
+                <label key={idx} className={`row-item ${completed[taskId] ? "row-item-done" : ""}`}>
+                  <input
+                    className="task-checkbox"
+                    type="checkbox"
+                    checked={Boolean(completed[taskId])}
+                    onChange={() => toggleTask(taskId)}
+                  />
                   <span className={`week-chip ${chipTone(block.title)}`}>{r[0]}</span>
                   <span className="row-copy">{r[1]}</span>
-                </div>
-              ))}
+                </label>
+              )})}
             </div>
           ))}
 
+          <div className="checklist-summary">
+            <h3 className="checklist-title">Team Checklist</h3>
+            <p className="checklist-copy">
+              {remainingTasks === 0
+                ? "All tasks complete for this phase. Time to move to the next milestone."
+                : `${remainingTasks} tasks left for this phase.`}
+            </p>
+          </div>
           <div className="milestone-pill">{phase.milestone}</div>
         </div>
       </div>

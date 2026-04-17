@@ -1,30 +1,30 @@
 :root {
-  --bg: #090f18;
-  --bg-end: #090e16;
-  --shell: #111822;
-  --shell-end: #101722;
-  --card: #121b26;
-  --card-hover: #152131;
-  --line: rgba(255, 255, 255, 0.14);
-  --line-soft: rgba(255, 255, 255, 0.1);
-  --text: #f4f7fb;
+  --bg: #0b111a;
+  --bg-end: #0f1824;
+  --shell: #101a27;
+  --shell-end: #0f1723;
+  --card: #142030;
+  --card-hover: #1a2a3d;
+  --line: rgba(224, 240, 255, 0.2);
+  --line-soft: rgba(224, 240, 255, 0.13);
+  --text: #edf4ff;
   --text-strong: #ffffff;
-  --muted: #a6b2c2;
-  --kicker: #d2dbe7;
-  --progress-text: #9fb0c5;
-  --warning-border: rgba(245, 180, 20, 0.3);
-  --warning-bg: rgba(245, 180, 20, 0.2);
-  --warning-text: #ffd766;
-  --accent-a: #63a4ff;
-  --accent-b: #99ec8c;
-  --accent-glow: rgba(99, 164, 255, 0.35);
+  --muted: #a9b9cc;
+  --kicker: #d8e6f5;
+  --progress-text: #afc0d8;
+  --warning-border: rgba(255, 178, 102, 0.38);
+  --warning-bg: rgba(255, 178, 102, 0.16);
+  --warning-text: #ffdcb1;
+  --accent-a: #64b5ff;
+  --accent-b: #67ddc1;
+  --accent-glow: rgba(100, 181, 255, 0.38);
   --role-icon-bg: rgba(255, 255, 255, 0.06);
   --role-icon-border: rgba(255, 255, 255, 0.18);
   --role-icon-text: #c9d8ef;
-  --row-hover-bg: rgba(255, 255, 255, 0.055);
-  --texture-1: rgba(106, 130, 251, 0.16);
-  --texture-2: rgba(93, 198, 80, 0.12);
-  --texture-3: rgba(255, 255, 255, 0.05);
+  --row-hover-bg: rgba(255, 255, 255, 0.07);
+  --texture-1: rgba(100, 181, 255, 0.16);
+  --texture-2: rgba(103, 221, 193, 0.11);
+  --texture-3: rgba(255, 255, 255, 0.045);
   --chip-backend-bg: rgba(61, 131, 255, 0.2);
   --chip-backend-border: rgba(93, 160, 255, 0.35);
   --chip-backend-text: #b8d7ff;
@@ -43,100 +43,6 @@
   --title-tracking: -0.02em;
   --kicker-tracking: 0.08em;
   --row-weight: 700;
-}
-
-.theme-museum {
-  --bg: #0f100f;
-  --bg-end: #151512;
-  --shell: #1a1a18;
-  --shell-end: #171714;
-  --card: #20201d;
-  --card-hover: #2a2824;
-  --line: rgba(242, 237, 227, 0.22);
-  --line-soft: rgba(242, 237, 227, 0.16);
-  --text: #f2ede3;
-  --text-strong: #fcf7ef;
-  --muted: #c0b4a3;
-  --kicker: #d9cab4;
-  --progress-text: #c0b4a3;
-  --warning-border: rgba(201, 123, 99, 0.45);
-  --warning-bg: rgba(201, 123, 99, 0.2);
-  --warning-text: #f5c1ad;
-  --accent-a: #c97b63;
-  --accent-b: #89a78d;
-  --accent-glow: rgba(201, 123, 99, 0.35);
-  --role-icon-bg: rgba(242, 237, 227, 0.08);
-  --role-icon-border: rgba(242, 237, 227, 0.28);
-  --role-icon-text: #f2e2d1;
-  --row-hover-bg: rgba(242, 237, 227, 0.07);
-  --texture-1: rgba(201, 123, 99, 0.16);
-  --texture-2: rgba(137, 167, 141, 0.14);
-  --texture-3: rgba(242, 237, 227, 0.05);
-  --chip-backend-bg: rgba(201, 123, 99, 0.24);
-  --chip-backend-border: rgba(201, 123, 99, 0.45);
-  --chip-backend-text: #ffd7cb;
-  --chip-automation-bg: rgba(220, 177, 109, 0.2);
-  --chip-automation-border: rgba(220, 177, 109, 0.4);
-  --chip-automation-text: #ffe9c8;
-  --chip-frontend-bg: rgba(137, 167, 141, 0.24);
-  --chip-frontend-border: rgba(137, 167, 141, 0.45);
-  --chip-frontend-text: #dcf2df;
-  --chip-growth-bg: rgba(176, 170, 156, 0.2);
-  --chip-growth-border: rgba(176, 170, 156, 0.4);
-  --chip-growth-text: #ebe3d3;
-  --font-base: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-display: "Baskerville Old Face", "Times New Roman", Georgia, serif;
-  --title-weight: 700;
-  --title-tracking: -0.01em;
-  --kicker-tracking: 0.12em;
-  --row-weight: 600;
-}
-
-.theme-cyber {
-  --bg: #050507;
-  --bg-end: #0c0e12;
-  --shell: #10131b;
-  --shell-end: #0d1017;
-  --card: #111522;
-  --card-hover: #151b2e;
-  --line: rgba(56, 225, 255, 0.3);
-  --line-soft: rgba(255, 79, 216, 0.24);
-  --text: #f3f7ff;
-  --text-strong: #ffffff;
-  --muted: #a9b8d6;
-  --kicker: #bdd0f2;
-  --progress-text: #9ab3df;
-  --warning-border: rgba(255, 79, 216, 0.45);
-  --warning-bg: rgba(255, 79, 216, 0.16);
-  --warning-text: #ff9be7;
-  --accent-a: #38e1ff;
-  --accent-b: #ff4fd8;
-  --accent-glow: rgba(56, 225, 255, 0.45);
-  --role-icon-bg: rgba(56, 225, 255, 0.1);
-  --role-icon-border: rgba(56, 225, 255, 0.35);
-  --role-icon-text: #9cf2ff;
-  --row-hover-bg: rgba(56, 225, 255, 0.08);
-  --texture-1: rgba(56, 225, 255, 0.18);
-  --texture-2: rgba(255, 79, 216, 0.14);
-  --texture-3: rgba(255, 255, 255, 0.04);
-  --chip-backend-bg: rgba(56, 225, 255, 0.2);
-  --chip-backend-border: rgba(56, 225, 255, 0.45);
-  --chip-backend-text: #b5f8ff;
-  --chip-automation-bg: rgba(255, 79, 216, 0.18);
-  --chip-automation-border: rgba(255, 79, 216, 0.42);
-  --chip-automation-text: #ffbaf0;
-  --chip-frontend-bg: rgba(118, 255, 179, 0.18);
-  --chip-frontend-border: rgba(118, 255, 179, 0.42);
-  --chip-frontend-text: #d2ffe8;
-  --chip-growth-bg: rgba(170, 160, 255, 0.2);
-  --chip-growth-border: rgba(170, 160, 255, 0.42);
-  --chip-growth-text: #ddd8ff;
-  --font-base: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
-  --title-weight: 800;
-  --title-tracking: 0.005em;
-  --kicker-tracking: 0.14em;
-  --row-weight: 650;
 }
 
 body {
@@ -179,49 +85,6 @@ body {
   background: linear-gradient(180deg, var(--shell) 0%, var(--shell-end) 100%);
   padding: 10px 12px 12px;
   backdrop-filter: blur(2px);
-}
-
-.theme-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.theme-label {
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-}
-
-.theme-pills {
-  display: flex;
-  gap: 6px;
-}
-
-.theme-pill {
-  border: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
-}
-
-.theme-pill:hover {
-  transform: translateY(-1px);
-  border-color: var(--line);
-}
-
-.theme-pill-active {
-  border-color: var(--accent-a);
-  background: color-mix(in srgb, var(--accent-a) 20%, transparent);
 }
 
 .tabs-row {
@@ -366,6 +229,13 @@ body {
   transition: width 260ms ease;
 }
 
+.phase-progress-meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
 .role-card {
   margin-bottom: 10px;
   border: 1px solid var(--line);
@@ -431,6 +301,7 @@ body {
   padding: 6px 8px;
   border-radius: 9px;
   transition: transform 180ms ease, background-color 180ms ease;
+  cursor: pointer;
 }
 
 .role-card:hover .row-item {
@@ -439,6 +310,21 @@ body {
 
 .row-item:hover {
   background: var(--row-hover-bg);
+}
+
+.row-item-done .row-copy {
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--accent-b) 70%, white);
+  opacity: 0.72;
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--accent-b);
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .week-chip {
@@ -505,6 +391,26 @@ body {
   transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
 }
 
+.checklist-summary {
+  margin-top: 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 14px;
+}
+
+.checklist-title {
+  margin: 0 0 4px;
+  color: var(--text-strong);
+  font-size: 16px;
+}
+
+.checklist-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .milestone-pill:hover {
   transform: translateY(-1px);
   filter: saturate(1.06);
@@ -513,7 +419,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .phase-tab,
-  .theme-pill,
   .phase-content,
   .phase-progress-fill,
   .role-card,
