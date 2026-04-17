@@ -7,12 +7,12 @@ export default function RoadmapDashboard() {
     {
       title: "Foundation",
       warning:
-        "Nobody on this team has built a SaaS backend before. This phase is about learning while building — not shipping perfect code.",
+        "Nobody on this team has built a SaaS backend before. This phase is about learning while building, not shipping perfect code.",
       milestone:
         "End of Phase 1: Backend API live. Frontend reads real data. 3 warm prospects identified.",
       blocks: [
         {
-          title: "Backend (you)",
+          title: "Backend (monty)",
           sub: "Learn just enough to ship",
           rows: [
             ["Week 1", "Express server running locally. One POST route."],
@@ -22,7 +22,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Automation engineer",
+          title: "Automation engineer (ty)",
           sub: "Learn event system",
           rows: [
             ["Week 1–2", "Node event emitter → lead_created event"],
@@ -30,7 +30,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Frontend + integrations",
+          title: "Frontend + integrations (cam)",
           sub: "UI shell",
           rows: [
             ["Week 1–2", "React + Tailwind auth pages"],
@@ -38,7 +38,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Growth owner",
+          title: "Growth owner (pat)",
           sub: "Find first prospects",
           rows: [
             ["Week 1", "Research 20 local service businesses"],
@@ -53,7 +53,7 @@ export default function RoadmapDashboard() {
         "End of Phase 2: Full CRM working. SMS integrated. 1 real business using it manually.",
       blocks: [
         {
-          title: "Backend (you)",
+          title: "Backend (monty)",
           sub: "Multi-tenant CRM API",
           rows: [
             ["Week 5–6", "Add business_id isolation"],
@@ -62,7 +62,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Automation engineer",
+          title: "Automation engineer (ty)",
           sub: "IF/THEN engine",
           rows: [
             ["Week 5–6", "lead_created triggers event"],
@@ -70,7 +70,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Frontend + integrations",
+          title: "Frontend + integrations (cam)",
           sub: "CRM dashboard",
           rows: [
             ["Week 5–6", "Kanban pipeline UI"],
@@ -78,7 +78,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Growth owner",
+          title: "Growth owner (pat)",
           sub: "Manual onboarding",
           rows: [["Week 5–8", "Onboard 1 real business"]],
         },
@@ -90,7 +90,7 @@ export default function RoadmapDashboard() {
         "End of Day 90: 3 paying customers. Automated DM replies working in production.",
       blocks: [
         {
-          title: "Backend (you)",
+          title: "Backend (monty)",
           sub: "Stability + roles",
           rows: [
             ["Week 9–10", "RBAC + bug fixes"],
@@ -98,7 +98,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Automation engineer",
+          title: "Automation engineer (ty)",
           sub: "Workflow engine",
           rows: [
             ["Week 9–10", "trigger → condition → action chains"],
@@ -106,7 +106,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Frontend + integrations",
+          title: "Frontend + integrations (cam)",
           sub: "Automation builder",
           rows: [
             ["Week 9–10", "rule builder UI"],
@@ -114,7 +114,7 @@ export default function RoadmapDashboard() {
           ],
         },
         {
-          title: "Growth owner",
+          title: "Growth owner (pat)",
           sub: "Revenue",
           rows: [["Week 9–12", "3 paying customers ($50/mo+)"]],
         },
@@ -125,22 +125,15 @@ export default function RoadmapDashboard() {
   const phase = phases[active];
   const tabLabels = ["Days 1-30", "Days 31-60", "Days 61-90"];
   const chipTone = (title) => {
-    if (title.includes("Backend")) {
-      return "chip-backend";
-    }
-    if (title.includes("Automation")) {
-      return "chip-automation";
-    }
-    if (title.includes("Frontend")) {
-      return "chip-frontend";
-    }
+    if (title.includes("Backend")) return "chip-backend";
+    if (title.includes("Automation")) return "chip-automation";
+    if (title.includes("Frontend")) return "chip-frontend";
     return "chip-growth";
   };
 
   return (
     <div className="roadmap-page">
       <div className="roadmap-shell">
-
         <div className="tabs-row">
           {phases.map((p, i) => (
             <button
@@ -153,16 +146,13 @@ export default function RoadmapDashboard() {
           ))}
         </div>
 
-        {phase.warning && (
-          <div className="warning-banner">{`△ ${phase.warning}`}</div>
-        )}
+        {phase.warning && <div className="warning-banner">{`△ ${phase.warning}`}</div>}
         <p className="phase-kicker">{phase.title}</p>
 
         {phase.blocks.map((block, i) => (
           <div key={i} className="role-card">
             <h2 className="role-title">{block.title}</h2>
             <p className="role-subtitle">{block.sub}</p>
-
             {block.rows.map((r, idx) => (
               <div key={idx} className="row-item">
                 <span className={`week-chip ${chipTone(block.title)}`}>{r[0]}</span>
