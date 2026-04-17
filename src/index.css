@@ -1,16 +1,147 @@
 :root {
   --bg: #090f18;
+  --bg-end: #090e16;
   --shell: #111822;
+  --shell-end: #101722;
   --card: #121b26;
+  --card-hover: #152131;
   --line: rgba(255, 255, 255, 0.14);
   --line-soft: rgba(255, 255, 255, 0.1);
   --text: #f4f7fb;
+  --text-strong: #ffffff;
   --muted: #a6b2c2;
+  --kicker: #d2dbe7;
+  --progress-text: #9fb0c5;
+  --warning-border: rgba(245, 180, 20, 0.3);
+  --warning-bg: rgba(245, 180, 20, 0.2);
+  --warning-text: #ffd766;
+  --accent-a: #63a4ff;
+  --accent-b: #99ec8c;
+  --accent-glow: rgba(99, 164, 255, 0.35);
+  --role-icon-bg: rgba(255, 255, 255, 0.06);
+  --role-icon-border: rgba(255, 255, 255, 0.18);
+  --role-icon-text: #c9d8ef;
+  --row-hover-bg: rgba(255, 255, 255, 0.055);
+  --texture-1: rgba(106, 130, 251, 0.16);
+  --texture-2: rgba(93, 198, 80, 0.12);
+  --texture-3: rgba(255, 255, 255, 0.05);
+  --chip-backend-bg: rgba(61, 131, 255, 0.2);
+  --chip-backend-border: rgba(93, 160, 255, 0.35);
+  --chip-backend-text: #b8d7ff;
+  --chip-automation-bg: rgba(237, 174, 54, 0.18);
+  --chip-automation-border: rgba(237, 174, 54, 0.35);
+  --chip-automation-text: #ffe2a8;
+  --chip-frontend-bg: rgba(157, 223, 64, 0.18);
+  --chip-frontend-border: rgba(157, 223, 64, 0.35);
+  --chip-frontend-text: #e3fbb6;
+  --chip-growth-bg: rgba(160, 171, 190, 0.17);
+  --chip-growth-border: rgba(160, 171, 190, 0.3);
+  --chip-growth-text: #d6deea;
+  --font-base: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  --title-weight: 900;
+  --title-tracking: -0.02em;
+  --kicker-tracking: 0.08em;
+  --row-weight: 700;
+}
+
+.theme-museum {
+  --bg: #0f100f;
+  --bg-end: #151512;
+  --shell: #1a1a18;
+  --shell-end: #171714;
+  --card: #20201d;
+  --card-hover: #2a2824;
+  --line: rgba(242, 237, 227, 0.22);
+  --line-soft: rgba(242, 237, 227, 0.16);
+  --text: #f2ede3;
+  --text-strong: #fcf7ef;
+  --muted: #c0b4a3;
+  --kicker: #d9cab4;
+  --progress-text: #c0b4a3;
+  --warning-border: rgba(201, 123, 99, 0.45);
+  --warning-bg: rgba(201, 123, 99, 0.2);
+  --warning-text: #f5c1ad;
+  --accent-a: #c97b63;
+  --accent-b: #89a78d;
+  --accent-glow: rgba(201, 123, 99, 0.35);
+  --role-icon-bg: rgba(242, 237, 227, 0.08);
+  --role-icon-border: rgba(242, 237, 227, 0.28);
+  --role-icon-text: #f2e2d1;
+  --row-hover-bg: rgba(242, 237, 227, 0.07);
+  --texture-1: rgba(201, 123, 99, 0.16);
+  --texture-2: rgba(137, 167, 141, 0.14);
+  --texture-3: rgba(242, 237, 227, 0.05);
+  --chip-backend-bg: rgba(201, 123, 99, 0.24);
+  --chip-backend-border: rgba(201, 123, 99, 0.45);
+  --chip-backend-text: #ffd7cb;
+  --chip-automation-bg: rgba(220, 177, 109, 0.2);
+  --chip-automation-border: rgba(220, 177, 109, 0.4);
+  --chip-automation-text: #ffe9c8;
+  --chip-frontend-bg: rgba(137, 167, 141, 0.24);
+  --chip-frontend-border: rgba(137, 167, 141, 0.45);
+  --chip-frontend-text: #dcf2df;
+  --chip-growth-bg: rgba(176, 170, 156, 0.2);
+  --chip-growth-border: rgba(176, 170, 156, 0.4);
+  --chip-growth-text: #ebe3d3;
+  --font-base: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Baskerville Old Face", "Times New Roman", Georgia, serif;
+  --title-weight: 700;
+  --title-tracking: -0.01em;
+  --kicker-tracking: 0.12em;
+  --row-weight: 600;
+}
+
+.theme-cyber {
+  --bg: #050507;
+  --bg-end: #0c0e12;
+  --shell: #10131b;
+  --shell-end: #0d1017;
+  --card: #111522;
+  --card-hover: #151b2e;
+  --line: rgba(56, 225, 255, 0.3);
+  --line-soft: rgba(255, 79, 216, 0.24);
+  --text: #f3f7ff;
+  --text-strong: #ffffff;
+  --muted: #a9b8d6;
+  --kicker: #bdd0f2;
+  --progress-text: #9ab3df;
+  --warning-border: rgba(255, 79, 216, 0.45);
+  --warning-bg: rgba(255, 79, 216, 0.16);
+  --warning-text: #ff9be7;
+  --accent-a: #38e1ff;
+  --accent-b: #ff4fd8;
+  --accent-glow: rgba(56, 225, 255, 0.45);
+  --role-icon-bg: rgba(56, 225, 255, 0.1);
+  --role-icon-border: rgba(56, 225, 255, 0.35);
+  --role-icon-text: #9cf2ff;
+  --row-hover-bg: rgba(56, 225, 255, 0.08);
+  --texture-1: rgba(56, 225, 255, 0.18);
+  --texture-2: rgba(255, 79, 216, 0.14);
+  --texture-3: rgba(255, 255, 255, 0.04);
+  --chip-backend-bg: rgba(56, 225, 255, 0.2);
+  --chip-backend-border: rgba(56, 225, 255, 0.45);
+  --chip-backend-text: #b5f8ff;
+  --chip-automation-bg: rgba(255, 79, 216, 0.18);
+  --chip-automation-border: rgba(255, 79, 216, 0.42);
+  --chip-automation-text: #ffbaf0;
+  --chip-frontend-bg: rgba(118, 255, 179, 0.18);
+  --chip-frontend-border: rgba(118, 255, 179, 0.42);
+  --chip-frontend-text: #d2ffe8;
+  --chip-growth-bg: rgba(170, 160, 255, 0.2);
+  --chip-growth-border: rgba(170, 160, 255, 0.42);
+  --chip-growth-text: #ddd8ff;
+  --font-base: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --title-weight: 800;
+  --title-tracking: 0.005em;
+  --kicker-tracking: 0.14em;
+  --row-weight: 650;
 }
 
 body {
   margin: 0;
-  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-base);
   background: var(--bg);
   color: var(--text);
 }
@@ -22,7 +153,7 @@ body {
 .roadmap-page {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(180deg, #0a0f18 0%, #090e16 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-end) 100%);
   padding: 14px;
   overflow-x: hidden;
 }
@@ -32,9 +163,9 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 10% -20%, rgba(106, 130, 251, 0.16), transparent 48%),
-    radial-gradient(circle at 88% 8%, rgba(93, 198, 80, 0.12), transparent 45%),
-    radial-gradient(circle at 48% 100%, rgba(255, 255, 255, 0.05), transparent 55%);
+  background: radial-gradient(circle at 10% -20%, var(--texture-1), transparent 48%),
+    radial-gradient(circle at 88% 8%, var(--texture-2), transparent 45%),
+    radial-gradient(circle at 48% 100%, var(--texture-3), transparent 55%);
   z-index: 0;
 }
 
@@ -45,9 +176,52 @@ body {
   margin: 0 auto;
   border: 1px solid var(--line-soft);
   border-radius: 14px;
-  background: linear-gradient(180deg, #111822 0%, #101722 100%);
+  background: linear-gradient(180deg, var(--shell) 0%, var(--shell-end) 100%);
   padding: 10px 12px 12px;
   backdrop-filter: blur(2px);
+}
+
+.theme-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.theme-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.theme-pills {
+  display: flex;
+  gap: 6px;
+}
+
+.theme-pill {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.theme-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--line);
+}
+
+.theme-pill-active {
+  border-color: var(--accent-a);
+  background: color-mix(in srgb, var(--accent-a) 20%, transparent);
 }
 
 .tabs-row {
@@ -59,7 +233,11 @@ body {
   top: 8px;
   z-index: 5;
   padding-bottom: 6px;
-  background: linear-gradient(180deg, rgba(17, 24, 34, 0.98), rgba(17, 24, 34, 0.72));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--shell) 95%, transparent),
+    color-mix(in srgb, var(--shell) 72%, transparent)
+  );
   backdrop-filter: blur(5px);
 }
 
@@ -87,7 +265,7 @@ body {
   bottom: 5px;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #63a4ff 0%, #99ec8c 100%);
+  background: linear-gradient(90deg, var(--accent-a) 0%, var(--accent-b) 100%);
   transform: scaleX(0);
   transform-origin: left;
   opacity: 0;
@@ -127,10 +305,10 @@ body {
 
 .warning-banner {
   margin-bottom: 12px;
-  border: 1px solid rgba(245, 180, 20, 0.3);
+  border: 1px solid var(--warning-border);
   border-radius: 10px;
-  background: rgba(245, 180, 20, 0.2);
-  color: #ffd766;
+  background: var(--warning-bg);
+  color: var(--warning-text);
   padding: 10px 12px;
   font-size: clamp(14px, 1.6vw, 22px);
   font-weight: 600;
@@ -146,9 +324,9 @@ body {
 
 .phase-kicker {
   margin: 0;
-  color: #d2dbe7;
+  color: var(--kicker);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--kicker-tracking);
   font-size: clamp(12px, 1.2vw, 16px);
   font-weight: 700;
 }
@@ -159,7 +337,7 @@ body {
 }
 
 .phase-progress-label {
-  color: #9fb0c5;
+  color: var(--progress-text);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -167,7 +345,7 @@ body {
 
 .phase-progress-value {
   margin-left: 8px;
-  color: #f4f8ff;
+  color: var(--text);
   font-size: 13px;
   font-weight: 700;
 }
@@ -183,8 +361,8 @@ body {
 .phase-progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #63a4ff 0%, #99ec8c 100%);
-  box-shadow: 0 0 14px rgba(99, 164, 255, 0.35);
+  background: linear-gradient(90deg, var(--accent-a) 0%, var(--accent-b) 100%);
+  box-shadow: 0 0 14px var(--accent-glow);
   transition: width 260ms ease;
 }
 
@@ -201,7 +379,7 @@ body {
 .role-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.26);
-  background: #152131;
+  background: var(--card-hover);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.33), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 }
 
@@ -214,11 +392,12 @@ body {
   align-items: center;
   gap: 10px;
   margin: 0;
-  color: #ffffff;
+  color: var(--text-strong);
+  font-family: var(--font-display);
   font-size: clamp(24px, 3.2vw, 47px);
   line-height: 1.06;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  font-weight: var(--title-weight);
+  letter-spacing: var(--title-tracking);
 }
 
 .role-icon {
@@ -228,9 +407,9 @@ body {
   min-width: 44px;
   height: 34px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
-  color: #c9d8ef;
+  border: 1px solid var(--role-icon-border);
+  background: var(--role-icon-bg);
+  color: var(--role-icon-text);
   font-size: 15px;
   font-weight: 800;
   line-height: 1;
@@ -259,7 +438,7 @@ body {
 }
 
 .row-item:hover {
-  background: rgba(255, 255, 255, 0.055);
+  background: var(--row-hover-bg);
 }
 
 .week-chip {
@@ -281,35 +460,36 @@ body {
 }
 
 .chip-backend {
-  background: rgba(61, 131, 255, 0.2);
-  border-color: rgba(93, 160, 255, 0.35);
-  color: #b8d7ff;
+  background: var(--chip-backend-bg);
+  border-color: var(--chip-backend-border);
+  color: var(--chip-backend-text);
 }
 
 .chip-automation {
-  background: rgba(237, 174, 54, 0.18);
-  border-color: rgba(237, 174, 54, 0.35);
-  color: #ffe2a8;
+  background: var(--chip-automation-bg);
+  border-color: var(--chip-automation-border);
+  color: var(--chip-automation-text);
 }
 
 .chip-frontend {
-  background: rgba(157, 223, 64, 0.18);
-  border-color: rgba(157, 223, 64, 0.35);
-  color: #e3fbb6;
+  background: var(--chip-frontend-bg);
+  border-color: var(--chip-frontend-border);
+  color: var(--chip-frontend-text);
 }
 
 .chip-growth {
-  background: rgba(160, 171, 190, 0.17);
-  border-color: rgba(160, 171, 190, 0.3);
-  color: #d6deea;
+  background: var(--chip-growth-bg);
+  border-color: var(--chip-growth-border);
+  color: var(--chip-growth-text);
 }
 
 .row-copy {
   padding-top: 2px;
-  color: #f5f8fd;
+  color: var(--text);
+  font-family: var(--font-base);
   font-size: clamp(16px, 2.05vw, 31px);
   line-height: 1.24;
-  font-weight: 700;
+  font-weight: var(--row-weight);
 }
 
 .milestone-pill {
@@ -333,6 +513,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .phase-tab,
+  .theme-pill,
   .phase-content,
   .phase-progress-fill,
   .role-card,
